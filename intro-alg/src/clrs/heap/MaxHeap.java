@@ -35,17 +35,18 @@ public class MaxHeap {
 	 *            <i>Max-Heap</i>
 	 */
 	public void maxHeapify(int[] arr, int i) {
+		int heapSize = arr.length;
 		int left = left(i);
 		int right = right(i);
 		int largest;
 
-		if (left < arr.length && arr[left] > arr[i]) {
+		if (left < heapSize && arr[left] > arr[i]) {
 			largest = left;
 		} else {
 			largest = i;
 		}
 
-		if (right < arr.length && arr[right] > arr[largest]) {
+		if (right < heapSize && arr[right] > arr[largest]) {
 			largest = right;
 		}
 
@@ -70,17 +71,18 @@ public class MaxHeap {
 	 *            <i>Max-Heap</i>
 	 */
 	public void maxHeapifyLoop(int[] arr, int i) {
+		int heapSize = arr.length;
 
 		while (i < arr.length) {
 			int left = left(i);
 			int right = right(i);
 			int largest;
-			if (left < arr.length && arr[left] > arr[i])
+			if (left < heapSize && arr[left] > arr[i])
 				largest = left;
 			else
 				largest = i;
 
-			if (right < arr.length && arr[right] > arr[largest])
+			if (right < heapSize && arr[right] > arr[largest])
 				largest = right;
 
 			if (largest == i)
@@ -92,7 +94,7 @@ public class MaxHeap {
 			i = largest;
 		}
 	}
-	
+
 	public void buildMaxHeap(int[] arr) {
 		for (int i = (arr.length - 1) / 2; i >= 0; i--) {
 			maxHeapify(arr, i);
@@ -153,11 +155,15 @@ public class MaxHeap {
 
 		System.out.println(Arrays.equals(array, arrayClone));
 		System.out.println(Arrays.equals(array1, array1Clone));
-		
+
 		System.out.println("Heap");
 		heap.buildMaxHeap(array);
 		heap.buildMaxHeap(array1);
 		System.out.println(Arrays.toString(array));
 		System.out.println(Arrays.toString(array1));
+
+		int[] makeMaxHeap = new int[] { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
+		heap.buildMaxHeap(makeMaxHeap);
+		System.out.println(Arrays.toString(makeMaxHeap));
 	}
 }
