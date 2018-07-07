@@ -51,8 +51,7 @@ public class MergeSort {
         int j = 0;
         int k = left;
         while (i < leftArraySize && j < rightArraySize) {
-            array[k] = leftArray[i] <= rightArray[j] ? leftArray[i++] : rightArray[j++];
-            k++;
+            array[k++] = leftArray[i] <= rightArray[j] ? leftArray[i++] : rightArray[j++];
         }
 
         while (i < leftArraySize) {
