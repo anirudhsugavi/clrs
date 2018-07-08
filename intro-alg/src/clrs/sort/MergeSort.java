@@ -2,6 +2,12 @@ package clrs.sort;
 
 import java.util.Arrays;
 
+/**
+ * Implements the <i><strong>Merge Sort</strong></i> algorithm.
+ * 
+ * @author ani
+ *
+ */
 public class MergeSort {
 
     public static void main(String[] args) {
@@ -20,10 +26,34 @@ public class MergeSort {
         System.out.println(Arrays.equals(randArray, copyRandArray));
     }
 
+    /**
+     * Sorts the given array using the <i>Merge Sort</i> algorithm.
+     * 
+     * @param array
+     *            the array to sort
+     */
     public static void mergeSort(int[] array) {
         mergeSort(array, 0, array.length - 1);
     }
 
+    /**
+     * Sorts the given array using the <i>Merge Sort</i> algorithm.
+     * 
+     * <p>
+     * The algorithm uses <i><strong>Divide-and-conquer</strong></i> method for
+     * sorting the given array. The {@code array} is recursively divided at the
+     * mid-point into two sub arrays. Each sub array is merged by placing the
+     * elements at their correct positions by the method
+     * {@link #merge(int[], int, int, int)}.
+     * </p>
+     * 
+     * @param array
+     *            the array to sort
+     * @param left
+     *            left/first index of the array
+     * @param right
+     *            the right/last index of the array
+     */
     private static void mergeSort(int[] array, int left, int right) {
         if (left < right) {
             int middle = (left + right) / 2;
@@ -33,6 +63,23 @@ public class MergeSort {
         }
     }
 
+    /**
+     * Merges the two sub arrays created from the given array.
+     * <p>
+     * Two sub arrays, {@code leftArray} and {@code rightArray} are created from the
+     * given {@code array}. These two arrays are merged by selecting the smallest
+     * element of the two arrays.
+     * </p>
+     * 
+     * @param array
+     *            the array to merge
+     * @param left
+     *            the left index of the array
+     * @param middle
+     *            the middle index of the array
+     * @param right
+     *            the right index of the array
+     */
     private static void merge(int[] array, int left, int middle, int right) {
         int leftArraySize = middle - left + 1;
         int rightArraySize = right - middle;
