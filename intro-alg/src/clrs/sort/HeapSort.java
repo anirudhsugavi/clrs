@@ -5,7 +5,7 @@ import java.util.Arrays;
 import clrs.heap.MaxHeap;
 
 /**
- * Implements the <b><i>Heap Sort</i></b> algorithm.
+ * Implements the <strong><i>Heap Sort</i></strong> algorithm.
  * 
  * @author ani
  *
@@ -28,10 +28,8 @@ public class HeapSort {
     }
 
     /**
-     * <p>
      * Sorts the given {@code array} in the ascending order using the
      * <i><strong>heap sort</strong></i> technique.
-     * </p>
      * 
      * <p>
      * The algorithm follows these steps:
